@@ -171,7 +171,7 @@ export const SidebarLink = ({
     <Link
       href={link.href}
       className={cn(
-        "group/sidebar flex items-center justify-start gap-2 rounded-md p-2",
+        "group/sidebar flex items-center justify-start gap-2 rounded-md px-4 py-2",
         className,
         active && "bg-neutral-200",
       )}
