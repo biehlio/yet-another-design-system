@@ -4,6 +4,7 @@ import Link, { LinkProps } from "next/link";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useParams } from "next/navigation";
 
 interface Links {
   label: string;
@@ -158,14 +159,13 @@ export const MobileSidebar = ({
 export const SidebarLink = ({
   link,
   className,
-  active,
   ...props
 }: {
   link: Links;
   className?: string;
-  active?: boolean;
   props?: LinkProps;
 }) => {
+  const params = useParams();
   const { open, animate } = useSidebar();
   return (
     <Link
@@ -173,7 +173,7 @@ export const SidebarLink = ({
       className={cn(
         "group/sidebar flex items-center justify-start gap-2 rounded-md px-4 py-2",
         className,
-        active && "bg-neutral-200",
+        params.slug === link.href.replace("/", "") && "bg-neutral-200",
       )}
       {...props}
     >
