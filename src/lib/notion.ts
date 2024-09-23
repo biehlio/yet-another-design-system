@@ -38,6 +38,12 @@ export const getDesignTokens = async (): Promise<DesignToken[]> => {
             equals: "published",
           },
         },
+        sorts: [
+          {
+            property: "name",
+            direction: "ascending",
+          },
+        ],
       }),
     );
 
@@ -67,6 +73,12 @@ export const getComponents = async (): Promise<Component[]> => {
             equals: "published",
           },
         },
+        sorts: [
+          {
+            property: "name",
+            direction: "ascending",
+          },
+        ],
       }),
     );
 

@@ -3,15 +3,8 @@
 import { getComponents, getDesignTokens } from "@/lib/notion";
 import { DesignToken, Component } from "@/lib/types";
 import { SidebarLink } from "@/components/ui/sidebar";
-import Icon from "@/components/icon";
 
-export default async function SidebarLinkGroup({
-  title,
-  slug,
-}: {
-  title: string;
-  slug?: string;
-}) {
+export default async function SidebarLinkGroup({ title }: { title: string }) {
   let links: DesignToken[] | Component[];
 
   switch (title) {
@@ -26,18 +19,15 @@ export default async function SidebarLinkGroup({
       break;
   }
 
-  console.log(slug);
-
   return (
-    <div className="flex flex-col gap-2">
-      <p>{title}</p>
+    <div className="flex flex-col">
+      <p className="mb-2 font-semibold text-neutral-700">{title}</p>
       {links.map((link, idx) => (
         <SidebarLink
           key={idx}
           link={{
             href: link.href,
             label: link.name,
-            icon: <Icon name={link.name} />,
           }}
         />
       ))}

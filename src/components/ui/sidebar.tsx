@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 interface Links {
   label: string;
   href: string;
-  icon: React.ReactElement | React.ReactNode;
+  icon?: React.ReactElement | React.ReactNode;
 }
 
 interface SidebarContextProps {
