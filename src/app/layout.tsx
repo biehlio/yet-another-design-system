@@ -3,6 +3,8 @@ import { JetBrains_Mono as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import MainSidebar from "@/components/main-sidebar";
+import Navbar from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,10 +29,18 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden md:flex-row">
-          <MainSidebar />
-          {children}
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden md:flex-row">
+            <MainSidebar />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
