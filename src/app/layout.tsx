@@ -27,7 +27,7 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden border md:flex-row">
+        <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden md:flex-row">
           <MainSidebar />
           {children}
         </div>
