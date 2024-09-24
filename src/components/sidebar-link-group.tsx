@@ -21,7 +21,7 @@ export default async function SidebarLinkGroup({ title }: { title: string }) {
 
   return (
     <div className="flex flex-col">
-      <p className="mb-2 font-semibold text-neutral-700">{title}</p>
+      <p className="mb-2 font-semibold">{title}</p>
       {links.map((link, idx) => (
         <SidebarLink
           key={idx}

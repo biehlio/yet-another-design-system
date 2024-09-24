@@ -53,6 +53,7 @@ export const getDesignTokens = async (): Promise<DesignToken[]> => {
       name: result.properties.name.title[0].text.content,
       slug: result.properties.slug.formula.string,
       href: result.properties.href.formula.string,
+      pageId: result.id,
     }));
 
     return designTokens;
@@ -88,11 +89,33 @@ export const getComponents = async (): Promise<Component[]> => {
       name: result.properties.name.title[0].text.content,
       slug: result.properties.slug.formula.string,
       href: result.properties.href.formula.string,
+      pageId: result.id,
     }));
 
     return components;
   } catch (error) {
     console.error("Error getting components:", error);
+    throw error;
+  }
+};
+
+export const getPageMD = async (pageId: string): Promise<string> => {
+  try {
+    const data = await fetchNotionData(
+      `https://api.notion.com/v1/pages/${pageId}`,
+      JSON.stringify({
+        include: "children",
+      }),
+    );
+
+    const page = data.results[0];
+
+    // Extract the Markdown content from the page
+    const markdownContent = page.properties.Content.rich_text[0].plain_text;
+
+    return markdownContent;
+  } catch (error) {
+    console.error("Error getting page MD:", error);
     throw error;
   }
 };

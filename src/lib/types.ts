@@ -3,6 +3,7 @@ export type DesignToken = {
   name: string;
   slug: string;
   href: string;
+  pageId: string;
 };
 
 export type Component = {
@@ -10,4 +11,5 @@ export type Component = {
   name: string;
   slug: string;
   href: string;
+  pageId: string;
 };

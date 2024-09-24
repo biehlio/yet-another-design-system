@@ -90,7 +90,7 @@ export const DesktopSidebar = ({
     <>
       <motion.div
         className={cn(
-          "hidden h-full w-[240px] flex-shrink-0 bg-neutral-100 px-4 py-4 md:flex md:flex-col",
+          "hidden h-full w-[240px] flex-shrink-0 bg-muted px-4 py-4 md:flex md:flex-col",
           className,
         )}
         animate={{
@@ -116,15 +116,12 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "flex h-10 w-full flex-row items-center justify-between bg-neutral-100 px-4 py-4 md:hidden",
+          "flex h-10 w-full flex-row items-center justify-between px-4 py-4 md:hidden",
         )}
         {...props}
       >
         <div className="z-20 flex w-full justify-end">
-          <IconMenu2
-            className="text-neutral-800"
-            onClick={() => setOpen(!open)}
-          />
+          <IconMenu2 onClick={() => setOpen(!open)} />
         </div>
         <AnimatePresence>
           {open && (
@@ -142,7 +139,7 @@ export const MobileSidebar = ({
               )}
             >
               <div
-                className="absolute right-10 top-10 z-50 text-neutral-800"
+                className="absolute right-10 top-10 z-50"
                 onClick={() => setOpen(!open)}
               >
                 <IconX />
@@ -173,7 +170,7 @@ export const SidebarLink = ({
       className={cn(
         "group/sidebar flex items-center justify-start gap-2 rounded-md px-4 py-2",
         className,
-        params.slug === link.href.replace("/", "") && "bg-neutral-200",
+        params.slug === link.href.replace("/", "") && "bg-accent",
       )}
       {...props}
     >
@@ -184,7 +181,7 @@ export const SidebarLink = ({
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="!m-0 inline-block whitespace-pre !p-0 text-sm text-neutral-700 transition duration-150 group-hover/sidebar:translate-x-1"
+        className="!m-0 inline-block whitespace-pre !p-0 text-sm transition duration-150 group-hover/sidebar:translate-x-1"
       >
         {link.label}
       </motion.span>

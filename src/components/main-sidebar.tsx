@@ -9,7 +9,7 @@ export default async function MainSidebar() {
     <Sidebar animate={false}>
       <SidebarBody className="justify-between">
         <div className="flex flex-1 flex-col space-y-6 overflow-y-auto overflow-x-hidden">
-          <Link className="text-sm font-semibold text-neutral-700" href="/">
+          <Link className="text-sm font-semibold" href="/">
             <p className="text-2xl font-bold">
               yet-another
               <br />

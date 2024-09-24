@@ -23,11 +23,11 @@ export default async function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "relative min-h-screen bg-background font-sans text-neutral-700 antialiased",
+          "relative min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
-        <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden border border-neutral-200 bg-gray-100 md:flex-row">
+        <div className="mx-auto flex h-screen w-full max-w-7xl flex-1 flex-col overflow-hidden border md:flex-row">
           <MainSidebar />
           {children}
         </div>
