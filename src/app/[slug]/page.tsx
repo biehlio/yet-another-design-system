@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
 type CardProps = React.ComponentProps<typeof Card>;
 
-export function CardDemo({ className, ...props }: CardProps) {
+function CardDemo({ className, ...props }: CardProps) {
   return (
     <Card className={cn("w-[380px]", className)} {...props}>
       <CardHeader>
